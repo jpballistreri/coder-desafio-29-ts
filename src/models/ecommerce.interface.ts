@@ -12,7 +12,7 @@ export interface MensajeI {
 }
 
 export interface ProductoI {
-  title: { type: String; required: false };
-  price: { type: String; required: false };
-  thumbnail: { type: String; required: false };
+  title: { type: string; required: false };
+  price: { type: number; required: false };
+  thumbnail: { type: string; required: false };
 }

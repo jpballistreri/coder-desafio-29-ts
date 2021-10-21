@@ -19,7 +19,7 @@ const mensajesSchema = new Mongoose.Schema<MensajeI>({
 
 const productosSchema = new Mongoose.Schema({
   title: { type: String, required: false },
-  price: { type: String, required: false },
+  price: { type: Number, required: false },
   thumbnail: { type: String, required: false },
 });
 

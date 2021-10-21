@@ -20,11 +20,23 @@ export const connectToDB = async () => {
   }
 };
 
+interface createProduct {
+  title: string;
+  price: number;
+  thumbnail: string;
+}
+
+interface updateProduct {
+  title: string;
+  price: number;
+  thumbnail: string;
+}
+
 class Productos {
   constructor() {}
 
-  async get(id: string) {
-    let output = [];
+  async get(id?: string) {
+    let output: any;
     try {
       if (id) {
         const document = await model.productos.findById(id);
@@ -38,16 +50,18 @@ class Productos {
     }
   }
 
-  async create(product: ProductoI) {
+  async create(product: createProduct) {
     const newProduct = new model.productos(product);
     await newProduct.save();
     console.log("Producto agregado");
     return newProduct;
   }
+
   async delete(id: string) {
     await model.productos.findByIdAndDelete(id);
   }
-  async update(id: string, producto: ProductoI) {
+
+  async update(id: string, producto: updateProduct) {
     return model.productos.findByIdAndUpdate(id, producto);
   }
 }
