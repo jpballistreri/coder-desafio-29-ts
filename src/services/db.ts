@@ -78,5 +78,6 @@ export const DBSesiones = {
   secret: `${Config.SESSION_SECRET_KEY}`,
   resave: true,
   saveUninitialized: true,
-  cookie: { httpOnly: false, maxAge: 10000 * 60 },
+  rolling: true,
+  cookie: { maxAge: 10000 * 60 },
 };
