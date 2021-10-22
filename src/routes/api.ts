@@ -9,7 +9,7 @@ import { ProductoI } from "../models/ecommerce.interface";
 const router = express.Router();
 
 router.get("/randoms", isLoggedIn, async (req, res) => {
-  const scriptPath = path.resolve(__dirname, "../../utils/randomNumbers.js");
+  const scriptPath = path.resolve(__dirname, "../utils/randomNumbers");
 
   const resultado = fork(scriptPath);
   const msj = {
@@ -44,6 +44,7 @@ router.get(
     failureRedirect: "productos/error-login",
   })
 );
+
 router.post("/signup", (req, res, next) => {
   passport.authenticate("signup", function (err, user, info) {
     console.log(err, user, info);

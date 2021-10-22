@@ -53,7 +53,7 @@ passport.deserializeUser(function (obj: any, cb) {
   cb(null, obj);
 });
 
-export const isLoggedIn = (req: Request, res: Response, done: any) => {
+export const isLoggedIn = (req: Request, res: Response, done: Function) => {
   if (!req.isAuthenticated()) return res.render("login");
 
   done();
